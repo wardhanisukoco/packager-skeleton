@@ -12,17 +12,15 @@ class :uc:packageServiceProvider extends ServiceProvider
      * @return void
      */
 
-    protected const PACKAGE_NAME = "finance";
-
     public function boot(): void
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'rmdoo');
-        $this->loadViewsFrom(__DIR__.'/Resources/views', :lc:package);
+        $this->loadViewsFrom(__DIR__.'/Resources/views', ':lc:package');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
         $this->app->router->group([
             'namespace' => ':uc:vendor\:uc:package\Http\Controllers',
-            'prefix' => :lc:package,
+            'prefix' => ':lc:package',
         ], function ($router) {
             require __DIR__.'/Routes/web.php';
         });
